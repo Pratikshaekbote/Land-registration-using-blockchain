@@ -6,22 +6,14 @@ import Image from "next/image"
 export default function Home() {
   return (
     <>
-      <div className="stack">
-        <div className="stack-child">
-          <Image
-            src="background.svg"
-            quality={100}
-            // layout = "fill"
-            objectFit="cover"
-            alt=""
-            width="100"
-            height="100"
-          />
-        </div>
-        <div className="stack-child">
-          <HeroSection/>
-        </div>
-      </div>
+      <Image
+        src="background.svg"
+        quality={100}
+        layout = "fill"
+        objectFit="cover"
+        alt=""
+      />
+      <HeroSection/>
     </>
   )
 }

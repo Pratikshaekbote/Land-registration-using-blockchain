@@ -106,7 +106,7 @@ a {
   }
 } */
 
-.stack{
+/* .stack{
   position: relative;
 }
 
@@ -114,4 +114,8 @@ a {
   position: absolute;
   top: 0;
   left: 0;
+} */
+
+img{
+  z-index: -1;
 }
