@@ -1,6 +1,7 @@
 // import { Inter } from 'next/font/google'
 import HeroSection from "./components/herosection"
 import Image from "next/image"
+
 // const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
@@ -14,6 +15,7 @@ export default function Home() {
         alt=""
       />
       <HeroSection/>
+      
     </>
   )
 }
