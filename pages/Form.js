@@ -8,22 +8,19 @@ import {
   Select,
   Upload,
 } from "antd";
+import Navbar from "../components/navbar/Navbar";
 
-const Form = () => {
+const form = () => {
   return (
     <>
-      <div>
+      <Navbar />
+      <div className="w-1/2 shadow-sm shadow-black rounded-lg mt-10 m-auto">
+        <div className="m-10">
+
+          <p className="font-bold mb-6 text-xl">#Add Land</p>
         <Form
-          labelCol={{
-            span: 8,
-          }}
-          wrapperCol={{
-            span: 14,
-          }}
+        
           layout="vertical"
-          style={{
-            maxWidth: 1000,
-          }}
         >
           <Form.Item
             label="Area (in sqm.)"
@@ -134,8 +131,9 @@ const Form = () => {
           </Form.Item>
         </Form>
       </div>
+      </div>
     </>
   );
 };
 
-export default Form;
+export default form;
