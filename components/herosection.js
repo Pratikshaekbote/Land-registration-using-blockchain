@@ -3,7 +3,7 @@ import Image from "next/image"
 function HeroSection() {
     return (
         <>
-            <div className="heading">Securing India's <br/> Property Rights Together.</div>
+            <div className="heading">Securing India's<br/>Property Rights Together.</div>
             <div className="button-div">
                 <button className="button">GET STARTED</button>
             </div>
