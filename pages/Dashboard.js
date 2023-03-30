@@ -12,24 +12,29 @@ import {
 } from "antd";
 import Navbar from "../components/navbar/Navbar";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
+import Metamask from "../components/metamask";
 
 const dashboard = () => {
   const [modalseller, setModalSeller] = useState(false);
   const [modalbuyer, setModalBuyer] = useState(false);
   const [modalinstpector, setModalInspector] = useState(false);
 
+  function OTPalert(params) {
+    alert('OTP will be send to your Registred Mobile');    
+  }
   const onFinishseller = (values) => {
     console.log("Success:", values);
+    alert(`Adhar Card ${values} Sucessfull Verified!!`)
     window.location = "/form";
   };
   const onFinishFailedseller = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
-
+  
   const onFinishbuyer = (values) => {
     console.log("Success:", values);
+    alert(`Adhar Card ${values} Sucessfull Verified!!`)
     window.location = "/lands";
-
   };
   const onFinishFailedbuyer = (errorInfo) => {
     console.log("Failed:", errorInfo);
@@ -82,9 +87,22 @@ const dashboard = () => {
         onOk={() => setModalSeller(false)}
         onCancel={() => setModalSeller(false)}
       >
-        <button class="mb-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-          Wallet Connect
-        </button>
+        {!(<Metamask />) ? (
+          <>
+            <p> Connect Wallet </p>
+            <br />
+            <button class="mb-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+              Wallet Connect
+            </button>
+          </>
+        ) : (
+          <>
+            <p>Wallet Connected </p>
+            <button class="mb-4 bg-blue-500 text-white font-bold py-2 px-4 rounded opacity-50 cursor-not-allowed">
+              {<Metamask />}
+            </button>
+          </>
+        )}
 
         <Form
           layout="vertical"
@@ -106,7 +124,30 @@ const dashboard = () => {
               },
             ]}
           >
-            <Input />
+            <Input placeholder="xxxx xxxx xxxx xxxx" />
+          </Form.Item>
+
+          <Form.Item label="OTP">
+            <Row gutter={8}>
+              <Col span={12}>
+                <Form.Item
+                  name="otp"
+                  noStyle
+                  rules={[
+                    {
+                      required: true,
+                      message: "Please input the OTP you got!",
+                    },
+                  ]}
+                >
+                  <Input placeholder="Enter OTP" />
+                </Form.Item>
+              </Col>
+              <Col span={12}>
+              <Button onClick={OTPalert}>Get otp</Button>
+
+              </Col>
+            </Row>
           </Form.Item>
 
           <Form.Item wrapperCol={{}}>
@@ -135,9 +176,22 @@ const dashboard = () => {
         onOk={() => setModalBuyer(false)}
         onCancel={() => setModalBuyer(false)}
       >
-        <button class="mb-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-          Wallet Connect
-        </button>
+          {!(<Metamask />) ? (
+          <>
+            <p> Connect Wallet </p>
+            <br />
+            <button class="mb-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+              Wallet Connect
+            </button>
+          </>
+        ) : (
+          <>
+            <p>Wallet Connected </p>
+            <button class="mb-4 bg-blue-500 text-white font-bold py-2 px-4 rounded opacity-50 cursor-not-allowed">
+              {<Metamask />}
+            </button>
+          </>
+        )}
 
         <Form
           layout="vertical"
@@ -150,7 +204,7 @@ const dashboard = () => {
           }}
           autoComplete="off"
         >
-          <Form.Item
+        <Form.Item
             label="Adhar Number"
             name="Adhar Number"
             rules={[
@@ -160,7 +214,29 @@ const dashboard = () => {
               },
             ]}
           >
-            <Input />
+            <Input placeholder="xxxx xxxx xxxx xxxx" />
+          </Form.Item>
+
+          <Form.Item label="OTP" >
+            <Row gutter={8}>
+              <Col span={12}>
+                <Form.Item
+                  name="otp"
+                  noStyle
+                  rules={[
+                    {
+                      required: true,
+                      message: "Please input the OTP you got!",
+                    },
+                  ]}
+                >
+                  <Input placeholder="Enter OTP" />
+                </Form.Item>
+              </Col>
+              <Col span={12}>
+                <Button onClick={OTPalert}>Get otp</Button>
+              </Col>
+            </Row>
           </Form.Item>
 
           <Form.Item wrapperCol={{}}>
